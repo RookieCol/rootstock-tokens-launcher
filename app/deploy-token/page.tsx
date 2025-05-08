@@ -1,15 +1,10 @@
 'use client'
 
-import ConnectedWallet from "@/components/connectedWallet";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
-import ConnectWalletButton from "@/components/ui/connectWalletButton";
-import { useAuth } from "@/context/AuthContext";
 import DeployToken from "@/components/deployToken";
 
 export default function TokenLaunch() {
-  const { isLoggedIn } = useAuth();
-
   return (
     <main className="h-full w-full flex flex-col">
       <Navbar />
@@ -26,18 +21,11 @@ export default function TokenLaunch() {
               </span>
             </span>
           </h1>
-          {isLoggedIn ?
-            (
-              <div className="flex items-center gap-4">
-                <ConnectedWallet />
-              </div>
-            ) :
-            (
-              <div className="flex items-center gap-4">
-                <ConnectWalletButton />
-              </div>
-            )
-          }
+          <div className="flex items-center gap-4">
+            <button className="px-4 py-2 bg-custom-green text-white rounded-md">
+              Connect Wallet
+            </button>
+          </div>
         </div>
         <div className="mt-10 w-full flex justify-center">
           <div className="flex w-[760px]">

@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 
 import "@/app/globals.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { AuthProvider } from "@/context/AuthContext";
+import { ThirdwebProvider } from "thirdweb/react";
 
 export const metadata: Metadata = {
-  title: '(Meme) Token Launch',
-  description: '(Meme) Token Launch | Rootstock',
-}
+  title: "(Meme) Token Launch",
+  description: "(Meme) Token Launch | Rootstock",
+};
 
 export default function RootLayout({
   children,
@@ -17,11 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="h-screen">
-        <AuthProvider>
+        <ThirdwebProvider>
           <TooltipProvider>{children}</TooltipProvider>
-        </AuthProvider>
+        </ThirdwebProvider>
       </body>
     </html>
   );
 }
-

@@ -2,8 +2,10 @@
 
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
-import ConnectWalletButton from "@/components/ui/connectWalletButton";
+
 import { ROUTER } from "@/constants";
+import { client } from "@/lib/client";
+import { ConnectButton } from "thirdweb/react";
 
 export default function Home() {
   return (
@@ -12,7 +14,7 @@ export default function Home() {
       <section className="w-full px-6 xl:px-0 md:w-[1000px] xl:w-[1300px] m-auto mt-4">
         <div className="w-full relative">
           <h1 className="md:text-6xl xl:text-[78px] relative z-10 font-bold text-black flex flex-col gap-2.5">
-            <span className="max-w-max px-1.5 bg-white">Meme Token Launch</span>
+            <span className="max-w-max px-1.5 bg-white">Token Launcher</span>
             <span className="flex gap-2">
               <span className="bg-custom-green px-1.5 w-max xl:text-5xl">
                 Memes
@@ -31,7 +33,10 @@ export default function Home() {
             Go to the app
           </h1>
           <div className="flex items-center">
-            <ConnectWalletButton className="mt-3" route={ROUTER.MY_TOKENS}/>
+          {/* Conncet button */}
+          <ConnectButton
+            client={client}
+          />
           </div>
         </div>
 
